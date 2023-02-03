@@ -1,0 +1,31 @@
+<h1>候選人列表</h1>
+
+<%= link_to '新增候選人' , new_candidate_path %>
+
+
+
+<table>
+    <tr>
+        <td></td>
+        <td>Votes</td>
+        <td>Name</td>
+        <td>Party</td>
+        <td>Age</td>
+        <td>Politics</td>
+        <td>Action</td>
+    </tr>
+    
+    <% @candidates.each do |candidate| %>
+    <tr>
+        <td><%= link_to candidate.vote , vote_candidate(candidate.id) , method: 'post' %></td>
+        <td><%= link_to candidate.name , candidate_path(candidate.id) %></td>
+        <td><%= candidate.party %></td>
+        <td><%= candidate.age %></td>
+        <td><%= candidate.politics %></td>
+        <td><%= link_to 'update' , edit_candidate_path(candidate.id) %></td>
+        <td><%= link_to 'delete' , candidate_path(candidate.id) , method: 'delete' , data: {confirm: 'are you sure?' }%></td>
+    </tr>
+    
+    
+    <% end %>
+</table>
