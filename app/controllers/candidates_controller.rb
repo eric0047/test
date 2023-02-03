@@ -50,4 +50,4 @@ class CandidatesController < ApplicationController
     end
 end
 
-##測試github update
+##測試github update 222222222
